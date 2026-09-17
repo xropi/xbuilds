@@ -247,16 +247,16 @@ Some settings worth knowing:
 
 | Setting                       | Default      | What it does                                                                      |
 |-------------------------------|--------------|-----------------------------------------------------------------------------------|
-| `show_hidden`                 | `true`       | show dotfiles                                                                     |
+| `show_hidden_bool`                 | `1`          | show dotfiles                                                                     |
 | `theme`                       | `dark`       | `dark`, `light`, or a file in `themes/`                                           |
-| `splash`                      | `true`       | the startup animation                                                             |
+| `splash_bool`                      | `1`          | the startup animation                                                             |
 | `sort_order`                  | `ext`        | `name`, `ext`, `size`, `mtime`                                                    |
 | `panel_typing`                | `console`    | plain typing in a panel goes to the shell; `jump` makes it jump to a name instead |
 | `layout.chrome`               | `minimal`    | `full` draws a full box around each panel                                         |
 | `layout.panel_height_percent` | `25`         | how much of the screen the panels take                                            |
 | `console_dim_amount`          | `0.4`        | how far the console fades while a panel has focus; `0.0` turns it off             |
 | `console_scroll_lines`        | `1`          | lines per `PgUp` press                                                            |
-| `console_follow_focus`        | `true`       | the shell follows the focused panel                                               |
+| `console_follow_focus_bool`        | `1`          | the shell follows the focused panel                                               |
 | `swap_escape`                 | `ctrl+o`     | key that pulls ccx back over a running command                                    |
 | `clock_time_format`           | `HH:MM:SS`   | left panel's clock; empty turns it off                                            |
 | `clock_date_format`           | `YYYY-MM-DD` | right panel's clock                                                               |
