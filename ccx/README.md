@@ -250,6 +250,7 @@ Some settings worth knowing:
 | `show_hidden_bool`                 | `1`          | show dotfiles                                                                     |
 | `theme`                       | `dark`       | `dark`, `light`, or a file in `themes/`                                           |
 | `splash_bool`                      | `1`          | the startup animation                                                             |
+| `left_start_cwd`, `right_start_cwd` | `auto`      | where each panel opens: `auto` (last session's directory when the shell auto-spawned ccx, the current directory when you typed `ccx`), `cwd`, `home`, `last_state` |
 | `sort_order`                  | `ext`        | `name`, `ext`, `size`, `mtime`                                                    |
 | `panel_typing`                | `console`    | plain typing in a panel goes to the shell; `jump` makes it jump to a name instead |
 | `layout.chrome`               | `minimal`    | `full` draws a full box around each panel                                         |
