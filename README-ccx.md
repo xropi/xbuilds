@@ -37,7 +37,7 @@ Features
 - 24-bit color
 - colored animations and effects.
 
-The full list is in [feature-list-ccx.md](feature-list-ccx.md).
+The full list is in [feature-list.md](feature-list.md).
 
 
 The console is your own shell, not a copy of one. `cd`, `export`, aliases,
@@ -371,9 +371,13 @@ so `Up` recalls the command afterwards like any other.
 line, newest at the bottom. Only entries that contain what you have typed are
 shown, and typing narrows the list further. `Up`/`Down` walk it,
 `PgUp`/`PgDn` move a page, `Enter` puts the selected entry on the command
-line (a second `Enter` runs it), `Esc` closes it. It is the shell's own
-history, so this session's commands are in it. Without ccx's bash
-integration (another shell, no prompt marks) `Up` is the shell's own Up.
+line (a second `Enter` runs it), `Esc` closes it. The list is ccx's own
+history file, `~/.local/share/ccx/ccx-history.txt`, shared by every ccx you
+run: a command run in one terminal is in the next `Up` list of all the
+others. The first run fills it from `~/.bash_history`; a command that starts
+with a space is not kept. Set `console_history_ccx_bool` to `0` to list the
+shell's own history instead. Without ccx's bash integration (another shell,
+no prompt marks) `Up` is the shell's own Up.
 
 The list also opens by itself when you start typing on an empty command
 line. Then `Enter` runs what you typed, as usual; it takes an entry from the
@@ -478,7 +482,9 @@ Some settings worth knowing:
 | `console_dim_amount`                | `0.4`        | how far the console fades while a panel has focus; `0.0` = off                |
 | `console_scroll_lines`              | `1`          | lines per `PgUp` press                                                        |
 | `console_history_rows`              | `12`         | most entries the `Up` history list shows at once                              |
-| `console_history_full_bool`         | `1`          | the `Up` list also holds the whole history file; `0` = the shell's list only  |
+| `console_history_ccx_bool`          | `1`          | the `Up` list is ccx's own history file, shared by every ccx; `0` = ask the shell |
+| `console_history_max_entries`       | `10000`      | most commands ccx's history file keeps                                        |
+| `console_history_full_bool`         | `1`          | with `console_history_ccx_bool` `0`: the list also holds the whole history file; `0` = the shell's list only |
 | `console_history_auto_bool`         | `0`          | `1` = typing on an empty command line opens the `Up` list; `0` = only `Up` opens it |
 | `console_complete_rows`             | `12`         | most names the `Tab` file-name list shows at once                             |
 | `console_follow_focus_bool`         | `1`          | the shell follows the focused panel                                           |

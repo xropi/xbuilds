@@ -41,7 +41,7 @@ Features
 - Compare your changes with the last git commit, side by side.
 - 24-bit color and animations.
 
-The full list is in [feature-list-edx.md](feature-list-edx.md).
+The full list is in [feature-list.md](feature-list.md).
 
 ## Install
 
