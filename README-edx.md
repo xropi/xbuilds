@@ -29,6 +29,12 @@ Features
 - the menu: f10, or click the ≡ in the top-left corner
 - **F1** shows every key; **F10** opens the menu.
 - Tabs: open several files at once, one tab each.
+- Panes: View menu → Split right / left / down / up. Each pane has its
+  own tabs; drag the line between two panes to resize them.
+- Folder panel: Ctrl+Alt+`, or View menu → Folder panel. The folder tree on the left,
+  the files of the chosen folder beside it; Enter or a double click
+  opens a file. The arrows move as in ccx: Left goes up a folder,
+  Right goes into one. Type a name to jump to it.
 - Everything works from the keyboard. The mouse is optional but fully
       supported: click, drag to select, double-click for a word, wheel to
       scroll, middle-drag to pan, right-click to copy the selection (or to
@@ -176,6 +182,7 @@ In `terminator` and `kitty` these differ from `x`:
 | Help | `F1`, `Shift+F1` | `Shift+F1` | same as `x` |
 | Next / previous tab | `Ctrl+PgDn` / `Ctrl+PgUp` | `Ctrl+Alt+PgDn` / `Ctrl+Alt+PgUp` | same as `x` |
 | Delete a word left | `Ctrl+Backspace` | `Alt+Backspace` | same as `x` |
+| Back / forward after a jump | `Alt+Backspace` / `Ctrl+Alt+Backspace` | `Ctrl+Alt+Left` / `Ctrl+Alt+Right` | same as `x` |
 | List what fits at the caret | `Ctrl+Shift+Enter` | — | `Ctrl+Alt+Enter` |
 | Not bound | — | `Shift+Insert` | `Shift+Insert` |
 
@@ -206,6 +213,7 @@ text.
 | Reload the file from disk                   | `Ctrl+R`                          |
 | Quit (asks about each unsaved tab)          | `Ctrl+Q`, click the red `X` top right |
 | The menu: File / Edit / Code / View         | `F10`, or `Alt+F` / `E` / `C` / `V` |
+| Split, close, resize or zoom a pane         | View menu (no keys yet)           |
 | Open a recent file                          | File menu, then its digit         |
 | Re-read `config.yml` without restarting    | `Ctrl+Alt+Shift+R`                |
 
@@ -222,6 +230,7 @@ time quits. Any other key cancels it.
 | Line start / end                      | `Home` / `End`               |
 | Document start / end                  | `Ctrl+Home` / `Ctrl+End`     |
 | Jump to the matching bracket          | `Ctrl+]`                     |
+| Back / forward to where a jump started (`F4`, `F3`, `F2`) | `Alt+Backspace` / `Ctrl+Alt+Backspace` |
 | Scroll without moving the caret       | `Ctrl+Up` / `Ctrl+Down`, wheel |
 | Scroll sideways                       | `Ctrl`+wheel (`hscroll_wheel`) |
 | Wrap long lines on / off              | `Alt+W`                      |
@@ -291,7 +300,7 @@ Completion offers the words of the open file.
 
 | What                                                | Key                |
 |-----------------------------------------------------|--------------------|
-| Go to where the name is defined (opens a new edx)   | `F4`               |
+| Go to where the name is defined (in a tab)          | `F4`               |
 | The signature of the call around the caret          | `Ctrl+Enter`       |
 | What fits here — members after `.` / `->`, etc.     | `Ctrl+Shift+Enter` |
 | Check the file and mark its errors                  | `Ctrl+Shift+F4`    |
@@ -300,8 +309,10 @@ Errors are also marked by themselves, a second after you stop typing.
 
 clangd needs a `compile_commands.json` to know how your project is built.
 Name it on the command line with `-c PATH`, or once for all files with
-`doc.compile_commands` in the config. To let edx search for it upwards from
-the file instead, set `doc.hybrid_find_compile_commands_bool` to `1`.
+`doc.compile_commands` in the config. Without either, edx searches for it:
+2 folders deep below the file's folder, then below each parent folder, up to
+the folder holding `.git`. `doc.search_depth` and `doc.top_level_markers`
+change the depth and where it stops.
 
 ---
 
@@ -366,8 +377,10 @@ Some settings worth knowing:
 | `cursor_color`                   | `#ffffff`        | caret color                                             |
 | `big_clock_bool`                 | `1`              | the big clock                                           |
 | `big_clock_format`               | `%H:%M:%S`       | its format                                              |
+| `show_clock_bool`                | `1`              | the small clock in the bottom-right corner              |
+| `show_date_bool`                 | `0`              | the date beside it                                      |
 
-Wrap, the big clock, the search options and the recent files are saved to
+Wrap, the clocks, the search options and the recent files are saved to
 `state.yml` when you change them, and win over the config file next time.
 
 # Command line

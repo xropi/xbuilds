@@ -5,7 +5,7 @@
 # (--system); extra options, e.g. --prefix DIR, are handed through.
 here="$(cd -- "$(dirname -- "$0")" && pwd)"
 failed=""
-for app in ccx cpx edx hex searchx trx; do
+for app in ccx cpx edx gtx hex searchx trx; do
     echo "== $app =="
     # Every install.sh ends with the same shell-wiring instruction; only the
     # last app prints it, so it is said once, at the end.
