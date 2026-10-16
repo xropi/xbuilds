@@ -475,6 +475,13 @@ and keeps the menu open. `Keys for a terminal...` lists the sets of keys
 use, and switches to the one you pick at once. Pick an item with its number, or with the arrows
 and `Enter`. `quick_menu.items` in the config lists what the menu shows.
 
+`Idle periods...` lists when you were away in the last 48 hours, newest
+first: start, end and length on each row. `idle_minutes` (default 5) with
+no key and no mouse click, drag or wheel is an idle period. Plain mouse
+moves are not seen. Time in another window counts as idle; with
+`idle_count_unfocused_bool` `0`, losing focus ends a period instead. The
+list is kept in memory only, so it starts empty in each ccx.
+
 `User commands...` lists your own commands from `user_menu.items` in the
 config. ccx ships none. Each one runs on the marked entries, or on the
 entry under the cursor; `{paths}` in the command becomes all of them,
@@ -578,6 +585,8 @@ Some settings worth knowing:
 | `clock_date_format`                     | `YYYY-MM-DD` | right panel's clock; empty turns it off                                                                      |
 | `panel_tools`                           | see above    | what Shift+F2 / F3 / F4 / Ctrl+F run                                                                         |
 | `user_menu`                             | empty        | your own commands under F2's `User commands...`                                                              |
+| `idle_minutes`                          | `5`          | minutes with no key or mouse input that make an idle period (F2's `Idle periods...`)                         |
+| `idle_count_unfocused_bool`             | `1`          | time in another window counts as idle; `0` = losing focus ends a period                                      |
 
 `left_start_cwd` / `right_start_cwd`: `auto` opens the last session's
 directory when the shell started ccx by itself, and the current directory
