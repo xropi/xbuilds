@@ -5,6 +5,33 @@
 # (no flags); extra options, e.g. --prefix DIR, are handed through.
 here="$(cd -- "$(dirname -- "$0")" && pwd)"
 failed=""
+# Password-protected apps (dev-D37): a loose <app>.zip here. Only when
+# wxl_xropi is set: the password is asked once, not echoed, and tried on
+# each zip; one that does not open is skipped.
+tmp=""
+for z in "$here"/*.zip; do
+    [ -f "$z" ] && [ -n "${wxl_xropi+x}" ] || continue
+    app="$(basename "$z" .zip)"
+    if [ -z "$tmp" ]; then
+        command -v unzip >/dev/null || { echo "unzip not found" \
+            "-- protected apps skipped" >&2; break; }
+        tmp="$(mktemp -d)"
+        trap 'stty echo 2>/dev/null; rm -rf "$tmp"' EXIT
+        trap 'exit 1' INT TERM
+        printf "password: "
+        stty -echo 2>/dev/null
+        read -r pw
+        stty echo 2>/dev/null
+        echo
+    fi
+    echo "== $app =="
+    if unzip -qq -P "$pw" "$z" -d "$tmp" 2>/dev/null; then
+        WXL_NO_HINT=1 sh "$tmp/$app/extract.sh" "$@" \
+            || failed="$failed $app"
+    else
+        echo "$app: wrong password -- skipped"
+    fi
+done
 for app in ccx cpx edx gtx hex searchx syncx trx; do
     echo "== $app =="
     # Every install.sh ends with the same shell-wiring instruction; only the

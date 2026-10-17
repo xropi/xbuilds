@@ -26,8 +26,8 @@ the mouse.
 Features
 
 - easy QUIT: ctrl+q, Esc twice, or click the red X in the top-right corner
-- the menu: f10, or click the ≡ in the top-left corner
-- **F1** shows every key; **F10** opens the menu.
+- the menu: ctrl+f9, or click the ≡ in the top-left corner
+- **F1** shows every key; **Ctrl+F9** opens the menu.
 - Tabs: open several files at once, one tab each.
 - Panes: View menu → Split right / left / down / up. Each pane has its
   own tabs; drag the line between two panes to resize them.
@@ -201,21 +201,21 @@ text.
 
 ## Files and tabs
 
-| What                                      | Key                                   |
-| ----------------------------------------- | ------------------------------------- |
-| Save (asks for a name when there is none) | `Ctrl+S`                              |
-| Open a file (a ccx-style file panel)      | `Ctrl+O`                              |
-| New empty tab                             | `Ctrl+N`                              |
-| Close this tab                            | `Ctrl+W`                              |
-| Close all tabs, leaving one empty tab     | `Ctrl+Alt+W`                          |
-| Next / previous tab                       | `Ctrl+PgDn` / `Ctrl+PgUp`             |
-| Tab 1 to 9                                | `Alt+1` .. `Alt+9`                    |
-| Reload the file from disk                 | `Ctrl+R`                              |
-| Quit (asks about each unsaved tab)        | `Ctrl+Q`, click the red `X` top right |
-| The menu: File / Edit / Code / View       | `F10`, or `Alt+F` / `E` / `C` / `V`   |
-| Split, close, resize or zoom a pane       | View menu (no keys yet)               |
-| Open a recent file                        | File menu, then its digit             |
-| Re-read `config.yml` without restarting   | `Ctrl+Alt+Shift+R`                    |
+| What                                      | Key                                     |
+| ----------------------------------------- | --------------------------------------- |
+| Save (asks for a name when there is none) | `Ctrl+S`                                |
+| Open a file (a ccx-style file panel)      | `Ctrl+O`                                |
+| New empty tab                             | `Ctrl+N`                                |
+| Close this tab                            | `Ctrl+W`                                |
+| Close all tabs, leaving one empty tab     | `Ctrl+Alt+W`                            |
+| Next / previous tab                       | `Ctrl+PgDn` / `Ctrl+PgUp`               |
+| Tab 1 to 9                                | `Alt+1` .. `Alt+9`                      |
+| Reload the file from disk                 | `Ctrl+R`                                |
+| Quit (asks about each unsaved tab)        | `Ctrl+Q`, click the red `X` top right   |
+| The menu: File / Edit / Code / View       | `Ctrl+F9`, or `Alt+F` / `E` / `C` / `V` |
+| Split, close, resize or zoom a pane       | View menu (no keys yet)                 |
+| Open a recent file                        | File menu, then its digit               |
+| Re-read `config.yml` without restarting   | `Ctrl+Alt+Shift+R`                      |
 
 **Esc twice quits.** `Esc` first drops what is active: extra carets, then
 the selection, then the search highlight. When nothing is left, one more
@@ -292,7 +292,7 @@ The search options are remembered between sessions.
 | Next / previous candidate                 | `Down` / `Up`     |
 | Mark / unmark this line                   | `Ctrl+F2`         |
 | Next / previous marked line               | `F2` / `Shift+F2` |
-| Compare with the last git commit (in cpx) | `F5`              |
+| Compare with the last git commit (in cpx) | `F6`              |
 
 Completion offers the words of the open file.
 
