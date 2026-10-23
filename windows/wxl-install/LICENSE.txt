@@ -1,0 +1,90 @@
+WXL — Windows eXperience on Linux
+Copyright (c) 2026 Robert Voros. All rights reserved.
+
+END USER LICENSE AGREEMENT
+
+This agreement covers the WXL toolset and everything distributed as part of it:
+its programs, including ccx, edx, cpx, trx and searchx, all libraries and components
+built into them, and their documentation, configuration files and supporting
+scripts (together, "the Software"). It applies to each WXL release in full,
+whether that release contains one program or all of them.
+
+By installing or using the Software you agree to the terms below. If you do not
+agree, do not install or use it.
+
+1. GRANT
+
+You are granted a personal, non-exclusive, non-transferable, revocable licence
+to install and run the Software on computers you own or control, for your own
+use, whether private or commercial.
+
+2. RESTRICTIONS
+
+Except as applicable law expressly permits, you may not:
+
+  a. copy the Software other than for backup purposes;
+  b. modify, adapt, translate or create derivative works of it;
+  c. reverse engineer, decompile or disassemble it, or attempt to derive its
+     source code;
+  d. sell, resell, rent, lease, lend, sublicense, distribute, publish or
+     otherwise make the Software available to any third party, whether or not
+     for a fee;
+  e. remove, disable or circumvent any licensing, identification or integrity
+     mechanism in the Software, or remove or alter any copyright, trade mark
+     or authorship notice;
+  f. use the Software to provide a hosted, managed or timesharing service to
+     third parties.
+
+Configuration files, themes and keybinding sets that the Software generates for
+you, and files you create with it, are yours; clause 2 does not restrict them.
+
+3. OWNERSHIP
+
+The Software is licensed, not sold. All right, title and interest in it,
+including all intellectual property rights, remain with the copyright holder.
+No rights are granted other than those expressly stated here, and no source
+code rights are granted.
+
+4. TERM AND TERMINATION
+
+This licence takes effect on first use and continues until terminated. It
+terminates automatically and without notice if you breach any term of it. On
+termination you must stop using the Software and destroy all copies in your
+possession.
+
+5. NO WARRANTY, NO LIABILITY
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. TO THE MAXIMUM EXTENT
+PERMITTED BY APPLICABLE LAW, THE COPYRIGHT HOLDER SHALL NOT BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+ARISING FROM OR IN CONNECTION WITH THE SOFTWARE OR ITS USE. THIS INCLUDES ANY
+LOSS OF OR DAMAGE TO DATA, HOWEVER CAUSED. YOU ARE RESPONSIBLE FOR MAINTAINING
+BACKUPS OF YOUR DATA.
+
+Nothing in this clause limits liability that cannot be limited by law.
+
+6. THIRD-PARTY COMPONENTS
+
+WXL releases are frozen, statically linked builds. Depending on which programs
+a release contains, it may include the following third-party components, each
+under a permissive licence and distributed with the notices that licence
+requires:
+
+  CPython            Python Software Foundation License 2.0
+  numpy              BSD 3-Clause
+  pillow             MIT-CMU
+
+Those licences govern those components. They grant no rights in the rest of the
+Software, and none of them requires that the Software be modifiable or
+redistributable. No copyleft-licensed component is included in any WXL release.
+
+7. GOVERNING LAW
+
+This agreement is governed by the laws of the Federal Republic of Germany,
+excluding its conflict-of-law rules and the UN Convention on Contracts for the
+International Sale of Goods.
+
+Contact: robert.voros@gmail.com
+
