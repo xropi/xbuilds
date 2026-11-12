@@ -165,7 +165,7 @@ The key tables below show the `x` keys. In `wt` these are different:
 
 | What                                            | `x`                                                       | `wt`                             |
 | ----------------------------------------------- | --------------------------------------------------------- | -------------------------------- |
-| Carets: remove / add one at the bottom          | `Alt+Shift+Up` / `Alt+Shift+Down`                         | `Ctrl+Alt+Up` / `Ctrl+Alt+Down`  |
+| Carets: stack up / down (back to undo)          | `Alt+Shift+Up` / `Alt+Shift+Down`                         | `Ctrl+Alt+Up` / `Ctrl+Alt+Down`  |
 | Move the line up / down                         | `Ctrl+Shift+Up` / `Ctrl+Shift+Down`                       | `Alt+PgUp` / `Alt+PgDn`          |
 | Select to the start / end of the file           | `Ctrl+Shift+Home` / `Ctrl+Shift+End`                      | `Ctrl+Alt+Home` / `Ctrl+Alt+End` |
 | Not bound in `wt` (Windows Terminal takes them) | `Ctrl+Shift+F` for replace, `Ctrl+Insert`, `Shift+Insert` | —                                |
@@ -252,7 +252,7 @@ time quits. Any other key cancels it.
 | Toggle upper / lower case (selection or word)     | `Ctrl+U`                            |
 | Toggle snake_case / camelCase (selection or word) | `Alt+U`                             |
 | Insert / overwrite mode                           | `Ins`                               |
-| Carets: remove / add one at the bottom            | `Alt+Shift+Up` / `Alt+Shift+Down`   |
+| Carets: stack up / down (back to undo)            | `Alt+Shift+Up` / `Alt+Shift+Down`   |
 
 ## Clipboard
 
