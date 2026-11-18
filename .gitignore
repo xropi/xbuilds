@@ -21,9 +21,6 @@ cmake_install.cmake
 *.obj
 *.a
 *.lib
-*.so
-*.dll
-*.exe
 
 # IDEs
 .vs/
