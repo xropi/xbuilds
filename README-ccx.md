@@ -218,6 +218,7 @@ text.
 | Focus the console                                                            | `Alt+3`, `Esc`, `Alt+Shift+Down`                     |
 | Back to the panels                                                           | `Esc`, `Alt+Shift+Up`                                |
 | Swap to the other panel                                                      | `Tab`; `Shift+Tab` or ``Alt+Shift+` `` from anywhere |
+| From an empty prompt: swap the linked panel and focus it                     | `Tab`                                                |
 | Drive menu for the left / right panel (`Enter`: the other panel's directory) | `Alt+F1` / `Alt+F2`                                  |
 | Panels off — console takes the whole screen                                  | `Ctrl+Backspace`                                     |
 | Panels one row taller / shorter                                              | `Alt+PgDn` / `Alt+PgUp`                              |
@@ -239,22 +240,23 @@ them — even in a ccx running in another terminal pane.
 
 ## Moving around
 
-| What                                                | Key                                                    |
-| --------------------------------------------------- | ------------------------------------------------------ |
-| Move the cursor                                     | `Up` / `Down`; `Shift+Up` / `Shift+Down` from anywhere |
-| Page / first / last                                 | `PgUp` / `PgDn` / `Home` / `End`                       |
-| Enter a directory or archive                        | `Right`                                                |
-| Go up one directory                                 | `Left`, `Backspace`, `Shift+Backspace`                 |
-| Parent / enter, from the panel or the console       | `Alt+Shift+Left` / `Alt+Shift+Right`                   |
-| Enter a folder or run a file, from panel or console | `Shift+Enter`                                          |
-| Go up, from the console                             | `Shift+Backspace`; `Alt+Backspace` at an empty prompt  |
-| Open: run an executable, else view it               | `Enter`                                                |
-| Jump to a name by typing                            | `Alt+<letter>`, then plain letters                     |
-| Reload both panels                                  | `Ctrl+R`                                               |
-| Show / hide dotfiles                                | `Ctrl+Alt+H`                                           |
-| Cycle sort (name / ext / size / date)               | `Ctrl+Alt+S`                                           |
-| Cycle the free-space unit, both panels              | `Ctrl+Alt+U`                                           |
-| Sizes as exact bytes / as K, M, G                   | `Ctrl+B`                                               |
+| What                                                                | Key                                                    |
+| ------------------------------------------------------------------- | ------------------------------------------------------ |
+| Move the cursor                                                     | `Up` / `Down`; `Shift+Up` / `Shift+Down` from anywhere |
+| Page / first / last                                                 | `PgUp` / `PgDn` / `Home` / `End`                       |
+| Enter a directory or archive                                        | `Right`                                                |
+| Go up one directory                                                 | `Left`, `Backspace`, `Shift+Backspace`                 |
+| Parent / enter, from the panel or the console                       | `Alt+Shift+Left` / `Alt+Shift+Right`                   |
+| Enter a folder or run a file, from panel or console                 | `Shift+Enter`                                          |
+| Go up, from the console                                             | `Shift+Backspace`; `Alt+Backspace` at an empty prompt  |
+| Move / go up / enter, from an empty prompt; focus goes to the panel | `Up` / `Down` / `Left` / `Right`                       |
+| Open: run an executable, else view it                               | `Enter`                                                |
+| Jump to a name by typing                                            | `Alt+<letter>`, then plain letters                     |
+| Reload both panels                                                  | `Ctrl+R`                                               |
+| Show / hide dotfiles                                                | `Ctrl+Alt+H`                                           |
+| Cycle sort (name / ext / size / date)                               | `Ctrl+Alt+S`                                           |
+| Cycle the free-space unit, both panels                              | `Ctrl+Alt+U`                                           |
+| Sizes as exact bytes / as K, M, G                                   | `Ctrl+B`                                               |
 
 **Jumping to a name needs Alt.** A plain letter in a panel goes to the
 shell instead: focus moves to the console and the letter starts a command
@@ -362,7 +364,7 @@ is no separate extract command.
 | ------------------------------------------- | -------------------------------- |
 | Run the typed line, full-screen             | `Enter`                          |
 | Pull ccx back over a running command        | `Ctrl+O`                         |
-| Show the shell's history as a list          | `Up`                             |
+| Show the shell's history as a list          | `Ctrl+Up`                        |
 | Undo / redo on the command line             | `Ctrl+Z` / `Ctrl+Shift+Z`        |
 | Give the screen back to the command         | `Ctrl+Backspace`                 |
 | Type into the shell while a panel has focus | any printable key                |
@@ -376,16 +378,17 @@ is no separate extract command.
 
 `Enter` hands the whole terminal to the shell for as long as the command
 runs, then takes it back. The command's output lands in normal scrollback,
-so `Up` recalls the command afterwards like any other.
+so `Ctrl+Up` recalls the command afterwards like any other.
 
-`Up` at the prompt shows the shell's history as a list above the command
-line, newest at the bottom. Only entries that contain what you have typed are
-shown, and typing narrows the list further. `Up`/`Down` walk it,
+`Ctrl+Up` at the prompt shows the shell's history as a list above the
+command line, newest at the bottom; on a typed line `Up` does it too. Only
+entries that contain what you have typed are shown, and typing narrows the
+list further. `Up`/`Down` walk it,
 `PgUp`/`PgDn` move a page, `Enter` puts the selected entry on the command
 line (a second `Enter` runs it), `Del` deletes it from the history, `Esc`
 closes the list. The list is ccx's own
 history file, `~/.local/share/ccx/ccx-history.txt`, shared by every ccx you
-run: a command run in one terminal is in the next `Up` list of all the
+run: a command run in one terminal is in the next history list of all the
 others. The first run fills it from `~/.bash_history`; a command that starts
 with a space is not kept. Each line in the file starts with the time the
 command ran, `[2026-10-15 13:45:12]: `. The list marks the oldest row of
@@ -394,7 +397,7 @@ each hour and of each day with its own colour, and on a list at least
 (`13:45:12`) or date (`2026-10-15`) on the right. A line from an older file
 has no time and counts as `2026-10-15 00:00:00`. Set
 `console_history_ccx_bool` to `0` to list the shell's own history instead. Without ccx's bash integration (another shell,
-no prompt marks) `Up` is the shell's own Up.
+no prompt marks) `Ctrl+Up` is the shell's own Up.
 
 The list also opens by itself when you start typing on an empty command
 line. Then `Enter` runs what you typed, as usual; it takes an entry from the
@@ -417,7 +420,7 @@ stands for any text: with `report_q1_final`, `report_q2_final` and
 list, on a blue plate, next to the word; typing narrows it, `Up`/`Down` walk
 it, `Enter` or `Tab` puts the selected name in place of the word, `Esc`
 closes it. `Ctrl+Space` types the wildcard here too. Only one of the two
-lists is open at a time. On an empty line `Tab` still switches the panel.
+lists is open at a time. On an empty line `Tab` switches to the other panel and focuses it.
 
 On the first word of a command — or after `|`, `;`, `&&`, `sudo` — `Tab`
 lists command names instead: aliases, functions, builtins, programs on
@@ -572,13 +575,13 @@ Some settings worth knowing:
 | `layout.panel_height_percent`           | `25`                      | how much of the screen the panels take                                                                       |
 | `console_dim_amount`                    | `0.4`                     | how far the console fades while a panel has focus; `0.0` = off                                               |
 | `console_scroll_lines`                  | `1`                       | lines per `PgUp` press                                                                                       |
-| `console_history_rows`                  | `12`                      | most entries the `Up` history list shows at once                                                             |
-| `console_history_ccx_bool`              | `1`                       | the `Up` list is ccx's own history file, shared by every ccx; `0` = ask the shell                            |
+| `console_history_rows`                  | `12`                      | most entries the history list shows at once                                                                  |
+| `console_history_ccx_bool`              | `1`                       | the history list is ccx's own history file, shared by every ccx; `0` = ask the shell                         |
 | `console_history_max_entries`           | `10000`                   | most commands ccx's history file keeps                                                                       |
 | `console_history_store_duplicates_bool` | `0`                       | `1` = keep every run of a command, each with its own time; `0` = each command once                           |
-| `console_history_stamp_min_width`       | `50`                      | list width from which the `Up` list's hour and day rows show their time or date                              |
+| `console_history_stamp_min_width`       | `50`                      | list width from which the history list's hour and day rows show their time or date                           |
 | `console_history_full_bool`             | `1`                       | with `console_history_ccx_bool` `0`: the list also holds the whole history file; `0` = the shell's list only |
-| `console_history_auto_bool`             | `0`                       | `1` = typing on an empty command line opens the `Up` list; `0` = only `Up` opens it                          |
+| `console_history_auto_bool`             | `0`                       | `1` = typing on an empty command line opens the history list; `0` = only `Ctrl+Up` opens it                  |
 | `console_complete_rows`                 | `12`                      | most names the `Tab` file-name list shows at once                                                            |
 | `console_find_flash_hold_seconds`       | `0.08`                    | how long `Ctrl+F`'s matches stay fully lit after each key                                                    |
 | `console_find_flash_fade_seconds`       | `0.6`                     | how long they then take to fade to the match colour                                                          |
